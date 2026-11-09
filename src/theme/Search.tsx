@@ -60,7 +60,7 @@ export default (async ({ query }) => {
           <div class="card card-body bg-base-100 p-0">
             <h2 class="card-title">{result.title}</h2>
             <p>
-              {result.preview.length > max_preview_char
+              {result.preview.length == max_preview_char
                 ? result.preview + "..."
                 : result.preview}
             </p>

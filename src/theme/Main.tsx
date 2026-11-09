@@ -44,7 +44,7 @@ export default (async ({ page }) => {
           <div class="card card-body bg-base-100 p-0">
             <h2 class="card-title">{post.title}</h2>
             <p>
-              {post.preview.length > max_preview_char
+              {post.preview.length == max_preview_char
                 ? post.preview + "..."
                 : post.preview}
             </p>
