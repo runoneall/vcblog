@@ -36,10 +36,10 @@ export default (async ({ name }) => {
       plugins: [
         external({
           target: "_blank",
-          rel: ["nofollow"],
+          rel: ["nofollow", "noreferrer"],
           hosts: [host],
           icon: true,
-          label: "(在新标签页打开)",
+          label: "",
         }),
       ],
     },
@@ -50,8 +50,7 @@ export default (async ({ name }) => {
       <title>
         {page.title} | {config.site_name}
       </title>
-
-      <article class="prose lg:prose-xl max-w-none">{raw(html)}</article>
+      <article class="prose max-w-none">{raw(html)}</article>
     </>
   );
 }) as FC<{ name: string }>;
