@@ -91,7 +91,7 @@ export default jsxRenderer(async ({ children, Layout }) => {
             class="drawer-overlay"
           />
 
-          <div class="bg-base-300 flex min-h-full w-54 flex-col items-center">
+          <div class="bg-base-300 flex min-h-full w-54 flex-col items-center pt-5 pb-8">
             <PagesLink />
           </div>
         </div>
