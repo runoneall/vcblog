@@ -10,7 +10,7 @@ import { GlobalCtx } from "@/types";
 
 export default (async ({ name }) => {
   const c: GlobalCtx = useRequestContext();
-  const { db, config } = c.var;
+  const { db, config, host } = c.var;
 
   const page = await db
     .select({
@@ -23,12 +23,6 @@ export default (async ({ name }) => {
     .get();
 
   if (!page) return <NotFound />;
-
-  const forwarded = c.req.header("x-forwarded-host");
-  const host =
-    typeof forwarded === "string"
-      ? forwarded.split(",")[0].trim()
-      : new URL(c.req.url).hostname;
 
   const html = await renderHtml(
     `# [${page.title}](/${page.name})\n\n` + page.content,

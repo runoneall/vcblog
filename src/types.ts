@@ -22,5 +22,13 @@ export type UseConfig = {
   };
 };
 
-export type GlobalEnv = { Bindings: D1Binding; Variables: UseDB & UseConfig };
+export type UseProxy = {
+  host: string;
+};
+
+export type GlobalEnv = {
+  Bindings: D1Binding;
+  Variables: UseDB & UseConfig & UseProxy;
+};
+
 export type GlobalCtx = Context<GlobalEnv>;
