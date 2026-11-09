@@ -25,7 +25,7 @@ export default jsxRenderer(async ({ children, Layout }) => {
         <input type="checkbox" class="drawer-toggle" id="drawer-toggle" />
 
         <div class="drawer-content md:max-h-fit">
-          <div class="navbar p-0">
+          <div class="navbar mb-3 p-0">
             <label class="mr-2 md:hidden" for="drawer-toggle">
               <svg
                 aria-label="Menu"
