@@ -16,6 +16,8 @@
     "daisyui": "^5.7.50",
     "drizzle-orm": "^1.0.0-rc.5",
     "hono": "^4.13.16",
+    "hono-feed": "^1.2.0",
+    "sitemap": "^10.0.0",
     "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
