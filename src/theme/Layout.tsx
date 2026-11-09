@@ -17,30 +17,14 @@ export default jsxRenderer(async ({ children, Layout }) => {
     .from(StorageTable)
     .where(eq(StorageTable.type, "page"));
 
-  const PagesLink = () => (
-    <ul class="menu menu-vertical md:menu-horizontal rounded-box">
-      {pages.map((page) => (
-        <li>
-          <a href={"/" + page.name}>{page.title}</a>
-        </li>
-      ))}
-
-      <li>
-        <a href={admin_path()} target="_blank" rel="noopener noreferrer">
-          管理员
-        </a>
-      </li>
-    </ul>
-  );
-
   return (
     <Layout>
       <title>{config.site_name}</title>
 
-      <div class="drawer">
+      <div class="drawer md:drawer-open">
         <input type="checkbox" class="drawer-toggle" id="drawer-toggle" />
 
-        <div class="drawer-content">
+        <div class="drawer-content md:max-h-fit">
           <div class="navbar p-0">
             <label class="mr-2 md:hidden" for="drawer-toggle">
               <svg
@@ -65,10 +49,6 @@ export default jsxRenderer(async ({ children, Layout }) => {
               </a>
             </div>
 
-            <div class="navbar-center hidden md:block">
-              <PagesLink />
-            </div>
-
             <div class="navbar-end">
               <form action="/search" method="get">
                 <input
@@ -84,16 +64,26 @@ export default jsxRenderer(async ({ children, Layout }) => {
           {children}
         </div>
 
-        <div class="drawer-side">
+        <div class="drawer-side max-h-fit md:mr-4">
           <label
             for="drawer-toggle"
             aria-label="close sidebar"
             class="drawer-overlay"
           />
 
-          <div class="bg-base-300 flex min-h-full w-54 flex-col items-center pt-5 pb-8">
-            <PagesLink />
-          </div>
+          <ul class="menu menu-vertical bg-base-300 md:rounded-box min-h-full w-54 pt-5 pb-8 md:min-h-fit md:bg-inherit">
+            {pages.map((page) => (
+              <li>
+                <a href={"/" + page.name}>{page.title}</a>
+              </li>
+            ))}
+
+            <li>
+              <a href={admin_path()} target="_blank" rel="noopener noreferrer">
+                管理员
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
