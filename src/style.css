@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer components {
+  body {
+    @apply m-3;
+
+    font-family:
+      "Droid Serif", Georgia, "Times New Roman", "PingFang SC",
+      "Hiragino Sans GB", "Source Han Sans CN", "WenQuanYi Micro Hei",
+      "Microsoft Yahei", serif;
+  }
+}
