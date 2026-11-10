@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { Next } from "hono";
-import { ConfigTable, ConfigTableSQL } from "@/db-schema";
+import { ConfigTable, CreateConfigTable } from "@/db-schema";
 import { GlobalCtx, UseConfig } from "@/types";
 import { random_jwt_secret } from "@/util/jwt";
 import { password_to_hash } from "@/util/password";
@@ -11,7 +11,7 @@ export default async (c: GlobalCtx, next: Next) => {
     if (!config_in_db) throw null;
     c.set("config", config_in_db);
   } catch {
-    await c.var.db.run(sql.raw(ConfigTableSQL));
+    await c.var.db.run(sql.raw(CreateConfigTable));
 
     const default_config: UseConfig["config"] = {
       site_name: "My Blog",

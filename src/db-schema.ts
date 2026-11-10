@@ -15,7 +15,7 @@ export const ConfigTable = sqliteTable("config", {
   jwt_secret: text().notNull(),
 });
 
-export const ConfigTableSQL = `CREATE TABLE IF NOT EXISTS config (
+export const CreateConfigTable = `CREATE TABLE IF NOT EXISTS config (
   id INTEGER NOT NULL PRIMARY KEY CHECK (id = 1),
 
   site_name TEXT NOT NULL,
@@ -34,7 +34,7 @@ export const StorageTable = sqliteTable("storage", {
   content: text().notNull().default(""),
 });
 
-export const StorageTableSQL = `CREATE TABLE IF NOT EXISTS storage (
+export const CreateStorageTable = `CREATE TABLE IF NOT EXISTS storage (
   name TEXT NOT NULL PRIMARY KEY,
   type TEXT NOT NULL CHECK (type IN ('post', 'page')),
   title TEXT NOT NULL UNIQUE,
