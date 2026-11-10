@@ -24,6 +24,7 @@ export type UseConfig = {
 
 export type UseProxy = {
   host: string;
+  protocol: string;
 };
 
 export type GlobalEnv = {

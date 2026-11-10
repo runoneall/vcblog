@@ -5,12 +5,11 @@ import { GlobalCtx } from "@/types";
 
 export default (format: "rss" | "atom") => {
   return async (c: GlobalCtx) => {
-    const { db, config, host } = c.var;
-    const protocol = new URL(c.req.url).protocol;
+    const { db, config, protocol, host } = c.var;
 
     const feed = new Feed({
       title: config.site_name,
-      link: `${protocol}//${host}`,
+      link: `${protocol}://${host}`,
       description: "latest articles",
     });
 
@@ -32,7 +31,8 @@ export default (format: "rss" | "atom") => {
     articles.forEach((article) => {
       feed.addItem({
         title: article.title,
-        link: `${protocol}//${host}/${article.name}`,
+        author: { name: config.site_name },
+        link: `${protocol}://${host}/${article.name}`,
         published: new Date(),
         content: article.preview,
       });
