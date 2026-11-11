@@ -21,7 +21,7 @@ export default jsxRenderer(async ({ children, Layout }) => {
     <Layout>
       <title>{config.site_name}</title>
 
-      <div class="drawer md:drawer-open">
+      <div class="drawer md:drawer-open p-3">
         <input type="checkbox" class="drawer-toggle" id="drawer-toggle" />
 
         <div class="drawer-content md:max-h-fit">
