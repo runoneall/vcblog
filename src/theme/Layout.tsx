@@ -19,6 +19,23 @@ export default jsxRenderer(async ({ children, Layout }) => {
 
   return (
     <Layout>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0 maximum-scale=1.0"
+      />
+      <link
+        rel="alternate"
+        href="/rss.xml"
+        type="application/rss+xml"
+        title="RSS"
+      />
+      <link
+        rel="alternate"
+        href="/atom.xml"
+        type="application/atom+xml"
+        title="Atom"
+      />
+
       <title>{config.site_name}</title>
 
       <div class="drawer md:drawer-open p-3">

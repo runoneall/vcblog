@@ -4,10 +4,18 @@ import Main from "@/theme/Main";
 import NotFound from "@/theme/NotFound";
 import Page from "@/theme/Page";
 import Search from "@/theme/Search";
+import feed from "@/theme/feed";
+import robots from "@/theme/robots";
+import sitemap from "@/theme/sitemap";
 import { GlobalEnv } from "@/types";
 
 const app = new Hono<GlobalEnv>();
 app.use(Layout);
+
+app.get("/robots.txt", robots);
+app.get("/rss.xml", feed("rss"));
+app.get("/atom.xml", feed("atom"));
+app.get("/sitemap.xml", sitemap);
 
 app.get("/", (c) => {
   return c.render(<Main page={1} />);

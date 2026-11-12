@@ -1,0 +1,8 @@
+@layer components {
+  body {
+    font-family:
+      "Droid Serif", Georgia, "Times New Roman", "PingFang SC",
+      "Hiragino Sans GB", "Source Han Sans CN", "WenQuanYi Micro Hei",
+      "Microsoft Yahei", serif;
+  }
+}
