@@ -19,22 +19,26 @@ app.get("/", needauth, (c) => {
 
 app.get("/login", (c) => {
   return c.render(
-    <div class="flex h-dvh w-dvw items-center justify-center">
-      <form action={admin_path("login")} method="post">
-        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-          <legend class="fieldset-legend">
-            登录至 {c.var.config.site_name}
-          </legend>
+    <>
+      <title>管理员登录 | {c.var.config.site_name}</title>
 
-          <label class="label">密码</label>
-          <input type="password" class="input" name="password" />
+      <div class="flex h-dvh w-dvw items-center justify-center">
+        <form action={admin_path("login")} method="post">
+          <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+            <legend class="fieldset-legend">
+              登录至 {c.var.config.site_name}
+            </legend>
 
-          <button type="submit" class="btn btn-neutral mt-4">
-            登录
-          </button>
-        </fieldset>
-      </form>
-    </div>,
+            <label class="label">密码</label>
+            <input type="password" class="input" name="password" />
+
+            <button type="submit" class="btn btn-neutral mt-4">
+              登录
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </>,
   );
 });
 
