@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vcblog",
+  "compatibility_date": "2025-08-03",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./src/index.ts",
+  "d1_databases": [
+    {
+      "binding": "db",
+      "database_name": "vcblog-db",
+    },
+  ],
+}
