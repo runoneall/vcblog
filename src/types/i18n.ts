@@ -6,5 +6,6 @@ export type UseI18n = {
       content: string;
     };
     feed_description: string;
+    search_input_placeholder: string;
   };
 };
