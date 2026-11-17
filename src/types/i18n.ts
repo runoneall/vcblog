@@ -5,5 +5,6 @@ export type UseI18n = {
       title: string;
       content: string;
     };
+    feed_description: string;
   };
 };

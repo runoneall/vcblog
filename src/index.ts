@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { html } from "hono/html";
+import feed from "@/feed";
 import config from "@/middleware/config";
 import db from "@/middleware/db";
 import i18n from "@/middleware/i18n";
@@ -15,6 +16,9 @@ app.use(db);
 app.use(config);
 app.use(storage);
 app.use(renderer);
+
+app.get("/rss.xml", feed("rss"));
+app.get("/atom.xml", feed("atom"));
 
 app.get("/", (c) => {
   return c.render(html``);
