@@ -97,7 +97,7 @@ export const renderer = jsxRenderer(async ({ children }) => {
 
               {authed || (
                 <li>
-                  <a href="/login">{i18n.login.title}</a>
+                  <a href="/login">{i18n.title.login}</a>
                 </li>
               )}
             </ul>

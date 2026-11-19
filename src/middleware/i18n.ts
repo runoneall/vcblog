@@ -17,9 +17,9 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       main: "Page ${page}",
       not_found: "Not Found",
       search: "Search",
+      login: "Login",
     },
-    login: {
-      title: "Login",
+    login_form: {
       password: "Password",
       submit: "Submit",
     },
@@ -38,9 +38,9 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       main: "第 ${page} 页",
       not_found: "未找到",
       search: "搜索",
+      login: "登录",
     },
-    login: {
-      title: "登录",
+    login_form: {
       password: "密码",
       submit: "提交",
     },

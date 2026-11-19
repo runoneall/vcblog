@@ -13,19 +13,19 @@ export default {
     return (
       <>
         <title>
-          {i18n.login.title} | {config.site_name}
+          {i18n.title.login} | {config.site_name}
         </title>
 
         <div class="flex justify-center">
           <form action="/login" method="post">
             <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-              <legend class="fieldset-legend">{i18n.login.title}</legend>
+              <legend class="fieldset-legend">{i18n.title.login}</legend>
 
-              <label class="label">{i18n.login.password}</label>
+              <label class="label">{i18n.login_form.password}</label>
               <input type="password" class="input" name="password" />
 
               <button type="submit" class="btn btn-neutral mt-4">
-                {i18n.login.submit}
+                {i18n.login_form.submit}
               </button>
             </fieldset>
           </form>

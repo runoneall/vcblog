@@ -11,9 +11,9 @@ export type UseI18n = {
       main: string;
       not_found: string;
       search: string;
+      login: string;
     };
-    login: {
-      title: string;
+    login_form: {
       password: string;
       submit: string;
     };
