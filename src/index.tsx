@@ -36,10 +36,9 @@ app.get("/:page{[1-9]+}?", (c) => {
 
 app.get("/search", (c) => {
   const keyword = c.req.query("keyword");
-  if (!keyword || keyword == "" || keyword.includes("%"))
-    return c.render(<NotFound />);
-
-  return c.render(<Search keyword={keyword} />);
+  return !keyword || keyword == "" || keyword.includes("%")
+    ? c.render(<NotFound />)
+    : c.render(<Search keyword={keyword} />);
 });
 
 app.get("/:name{[a-zA-Z0-9_-]+}", (c) => {
