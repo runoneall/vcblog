@@ -40,7 +40,7 @@ export const renderer = jsxRenderer(async ({ children }) => {
         <Link href="/src/style.css" rel="stylesheet" />
       </head>
       <body>
-        <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar bg-base-100">
           <div class="flex-none md:hidden">
             <label
               for="drawer-toggle"

@@ -41,7 +41,7 @@ export default (async ({ name }) => {
         {result.title} | {config.site_name}
       </title>
 
-      <div class="card bg-base-100 shadow-sm">
+      <div class="card bg-base-100 rounded-none">
         <div class="card-body">
           <h2 class="card-title">{result.title}</h2>
           <div class="prose max-w-none">{raw(html)}</div>

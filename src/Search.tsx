@@ -38,13 +38,13 @@ export default (async ({ keyword }) => {
         {`${i18n.title.search} ${keyword}`} | {config.site_name}
       </title>
 
-      <ul class="list bg-base-100 rounded-box shadow-md">
+      <ul class="list bg-base-100">
         {results.map((result) => (
           <li class="list-row">
-            <div>
-              <a href={`/${result.name}`}>{result.title}</a>
-            </div>
-            <p class="list-col-wrap text-xs">
+            <a class="text-xl" href={`/${result.name}`}>
+              {result.title}
+            </a>
+            <p class="list-col-wrap">
               {result.preview +
                 (result.preview.length > config.preview_char ? "..." : "")}
             </p>

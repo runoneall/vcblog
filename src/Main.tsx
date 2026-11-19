@@ -42,13 +42,13 @@ export default (async ({ page }) => {
         </title>
       )}
 
-      <ul class="list bg-base-100 rounded-box shadow-md">
+      <ul class="list bg-base-100">
         {posts.map((post) => (
           <li class="list-row">
-            <div>
-              <a href={`/${post.name}`}>{post.title}</a>
-            </div>
-            <p class="list-col-wrap text-xs">
+            <a class="text-xl" href={`/${post.name}`}>
+              {post.title}
+            </a>
+            <p class="list-col-wrap">
               {post.preview +
                 (post.preview.length > config.preview_char ? "..." : "")}
             </p>
