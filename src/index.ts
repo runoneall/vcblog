@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { html } from "hono/html";
 import feed from "@/feed";
+import auth from "@/middleware/auth";
 import config from "@/middleware/config";
 import db from "@/middleware/db";
 import i18n from "@/middleware/i18n";
@@ -17,6 +18,7 @@ app.use(proxy);
 app.use(db);
 app.use(config);
 app.use(storage);
+app.use(auth);
 app.use(renderer);
 
 app.get("/robots.txt", robots);
