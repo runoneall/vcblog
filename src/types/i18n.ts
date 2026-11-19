@@ -10,6 +10,7 @@ export type UseI18n = {
     title: {
       main: string;
       not_found: string;
+      search: string;
     };
   };
 };

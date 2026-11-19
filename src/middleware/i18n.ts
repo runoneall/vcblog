@@ -16,6 +16,7 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
     title: {
       main: "Page ${page}",
       not_found: "Not Found",
+      search: "Search",
     },
   },
 
@@ -31,6 +32,7 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
     title: {
       main: "第 ${page} 页",
       not_found: "未找到",
+      search: "搜索",
     },
   },
 };

@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import Main from "@/Main";
 import NotFound from "@/NotFound";
+import Search from "@/Search";
 import View from "@/View";
 import feed from "@/feed";
 import auth from "@/middleware/auth";
@@ -31,6 +32,14 @@ app.get("/atom.xml", feed("atom"));
 app.get("/:page{[1-9]+}?", (c) => {
   const page = Number(c.req.param("page")) || 1;
   return c.render(<Main page={page} />);
+});
+
+app.get("/search", (c) => {
+  const keyword = c.req.query("keyword");
+  if (!keyword || keyword == "" || keyword.includes("%"))
+    return c.render(<NotFound />);
+
+  return c.render(<Search keyword={keyword} />);
 });
 
 app.get("/:name{[a-zA-Z0-9_-]+}", (c) => {
