@@ -83,7 +83,7 @@ export const renderer = jsxRenderer(async ({ children }) => {
         <div class="drawer md:drawer-open">
           <input class="drawer-toggle" type="checkbox" id="drawer-toggle" />
 
-          <div class="drawer-content md:max-h-fit">{children}</div>
+          <div class="drawer-content md:max-h-fit lg:w-8/12">{children}</div>
 
           <div class="drawer-side md:max-h-fit">
             <label for="drawer-toggle" class="drawer-overlay" />

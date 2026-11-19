@@ -1,6 +1,7 @@
 import { eq, sql } from "drizzle-orm";
 import { FC } from "hono/jsx";
 import { useRequestContext } from "hono/jsx-renderer";
+import NotFound from "@/NotFound";
 import { Context } from "@/types";
 import { StorageTable } from "@/types/db";
 
@@ -8,10 +9,13 @@ export default (async ({ page }) => {
   const c: Context = useRequestContext();
   const { i18n, db, config } = c.var;
 
-  const total_page = Math.ceil(
-    (await db.$count(StorageTable, eq(StorageTable.type, "post"))) /
-      config.post_per_page,
+  const total_post = await db.$count(
+    StorageTable,
+    eq(StorageTable.type, "post"),
   );
+
+  const total_page = Math.ceil(total_post / config.post_per_page);
+  if (total_page == 0) return <NotFound />;
 
   const posts = await db
     .select({
@@ -34,7 +38,7 @@ export default (async ({ page }) => {
         <title>{config.site_name}</title>
       ) : (
         <title>
-          {i18n.main_title.replaceAll("${page}", String(page))} |{" "}
+          {i18n.title.main.replaceAll("${page}", String(page))} |{" "}
           {config.site_name}
         </title>
       )}
