@@ -13,6 +13,7 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
     },
     feed_description: "'s latest articles",
     search_input_placeholder: "Enter keywords to search",
+    main_title: "Page ${page}",
   },
 
   zh: {
@@ -24,6 +25,7 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
     },
     feed_description: "的最新文章",
     search_input_placeholder: "输入关键词搜索",
+    main_title: "第 ${page} 页",
   },
 };
 

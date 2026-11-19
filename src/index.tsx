@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { html } from "hono/html";
+import Main from "@/Main";
 import feed from "@/feed";
 import auth from "@/middleware/auth";
 import config from "@/middleware/config";
@@ -26,8 +26,9 @@ app.get("/sitemap.xml", sitemap);
 app.get("/rss.xml", feed("rss"));
 app.get("/atom.xml", feed("atom"));
 
-app.get("/", (c) => {
-  return c.render(html``);
+app.get("/:page{[1-9]+}?", (c) => {
+  const page = Number(c.req.param("page")) || 1;
+  return c.render(<Main page={page} />);
 });
 
 export default app;

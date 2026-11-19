@@ -3,7 +3,7 @@
   "name": "vcblog",
   "compatibility_date": "2025-08-03",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "./src/index.ts",
+  "main": "./src/index.tsx",
   "d1_databases": [
     {
       "binding": "db",
