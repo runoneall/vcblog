@@ -9,13 +9,10 @@ export default (async ({ page }) => {
   const c: Context = useRequestContext();
   const { i18n, db, config } = c.var;
 
-  const total_post = await db.$count(
-    StorageTable,
-    eq(StorageTable.type, "post"),
+  const total_page = Math.ceil(
+    (await db.$count(StorageTable, eq(StorageTable.type, "post"))) /
+      config.post_per_page,
   );
-
-  const total_page = Math.ceil(total_post / config.post_per_page);
-  if (total_page == 0) return <NotFound />;
 
   const posts = await db
     .select({
@@ -31,6 +28,8 @@ export default (async ({ page }) => {
     .orderBy(sql`rowid DESC`)
     .offset((page - 1) * config.post_per_page)
     .limit(config.post_per_page);
+
+  if (posts.length == 0) return <NotFound />;
 
   return (
     <>
