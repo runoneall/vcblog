@@ -12,5 +12,10 @@ export type UseI18n = {
       not_found: string;
       search: string;
     };
+    login: {
+      title: string;
+      password: string;
+      submit: string;
+    };
   };
 };

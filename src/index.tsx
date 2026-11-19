@@ -4,6 +4,7 @@ import NotFound from "@/NotFound";
 import Search from "@/Search";
 import View from "@/View";
 import feed from "@/feed";
+import login from "@/login";
 import auth from "@/middleware/auth";
 import config from "@/middleware/config";
 import db from "@/middleware/db";
@@ -40,6 +41,12 @@ app.get("/search", (c) => {
     ? c.render(<NotFound />)
     : c.render(<Search keyword={keyword} />);
 });
+
+app
+  .get("/login", (c) => {
+    return c.render(<login.Form />);
+  })
+  .post(login.Submit);
 
 app.get("/:name{[a-zA-Z0-9_-]+}", (c) => {
   const name = c.req.param("name");

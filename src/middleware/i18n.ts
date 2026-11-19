@@ -18,6 +18,11 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       not_found: "Not Found",
       search: "Search",
     },
+    login: {
+      title: "Login",
+      password: "Password",
+      submit: "Submit",
+    },
   },
 
   zh: {
@@ -33,6 +38,11 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       main: "第 ${page} 页",
       not_found: "未找到",
       search: "搜索",
+    },
+    login: {
+      title: "登录",
+      password: "密码",
+      submit: "提交",
     },
   },
 };

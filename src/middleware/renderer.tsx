@@ -6,7 +6,7 @@ import { StorageTable } from "@/types/db";
 
 export const renderer = jsxRenderer(async ({ children }) => {
   const c: Context = useRequestContext();
-  const { i18n, db, config } = c.var;
+  const { i18n, db, config, authed } = c.var;
 
   const pages = await db
     .select({
@@ -94,6 +94,12 @@ export const renderer = jsxRenderer(async ({ children }) => {
                   <a href={`/${page.name}`}>{page.title}</a>
                 </li>
               ))}
+
+              {authed || (
+                <li>
+                  <a href="/login">{i18n.login.title}</a>
+                </li>
+              )}
             </ul>
           </div>
         </div>
