@@ -70,7 +70,7 @@ export const renderer = jsxRenderer(async ({ children }) => {
 
           <div class="flex-none">
             <form action="/search" method="get">
-              <label class="input">
+              <label class="input px-2.5">
                 <svg
                   class="h-[1em] opacity-50"
                   xmlns="http://www.w3.org/2000/svg"
