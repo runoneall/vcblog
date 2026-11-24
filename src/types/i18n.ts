@@ -12,9 +12,18 @@ export type UseI18n = {
       not_found: string;
       search: string;
       login: string;
+      settings: string;
     };
     login_form: {
       password: string;
+      submit: string;
+    };
+    settings_form: {
+      site_name: string;
+      post_per_page: string;
+      preview_char: string;
+      extra_css: string;
+      extra_js: string;
       submit: string;
     };
   };

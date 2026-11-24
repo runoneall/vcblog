@@ -18,10 +18,19 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       not_found: "Not Found",
       search: "Search",
       login: "Login",
+      settings: "Settings",
     },
     login_form: {
       password: "Password",
       submit: "Submit",
+    },
+    settings_form: {
+      site_name: "Site name",
+      post_per_page: "Post per page",
+      preview_char: "Preview char",
+      extra_css: "Extra css",
+      extra_js: "Extra js",
+      submit: "Update",
     },
   },
 
@@ -39,10 +48,19 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       not_found: "未找到",
       search: "搜索",
       login: "登录",
+      settings: "设置",
     },
     login_form: {
       password: "密码",
       submit: "提交",
+    },
+    settings_form: {
+      site_name: "站点名称",
+      post_per_page: "每页文章数",
+      preview_char: "预览字符数",
+      extra_css: "额外的 CSS",
+      extra_js: "额外的 JS",
+      submit: "更新",
     },
   },
 };

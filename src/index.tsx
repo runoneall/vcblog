@@ -9,10 +9,12 @@ import auth from "@/middleware/auth";
 import config from "@/middleware/config";
 import db from "@/middleware/db";
 import i18n from "@/middleware/i18n";
+import needauth from "@/middleware/needauth";
 import proxy from "@/middleware/proxy";
 import { renderer } from "@/middleware/renderer";
 import storage from "@/middleware/storage";
 import robots from "@/robots";
+import settings from "@/settings";
 import sitemap from "@/sitemap";
 import { Environment } from "@/types";
 
@@ -47,6 +49,12 @@ app
     return c.render(<login.Form />);
   })
   .post(login.Submit);
+
+app
+  .get("/settings", needauth, (c) => {
+    return c.render(<settings.Form />);
+  })
+  .post(settings.Submit);
 
 app.get("/:name{[a-zA-Z0-9_-]+}", (c) => {
   const name = c.req.param("name");
