@@ -70,12 +70,31 @@ export const renderer = jsxRenderer(async ({ children }) => {
 
           <div class="flex-none">
             <form action="/search" method="get">
-              <input
-                class="input"
-                type="text"
-                name="keyword"
-                placeholder={i18n.search_input_placeholder}
-              />
+              <label class="input">
+                <svg
+                  class="h-[1em] opacity-50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                  </g>
+                </svg>
+
+                <input
+                  type="search"
+                  name="keyword"
+                  placeholder={i18n.search_input_placeholder}
+                  required
+                />
+              </label>
             </form>
           </div>
         </div>
