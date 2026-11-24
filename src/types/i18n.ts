@@ -13,6 +13,7 @@ export type UseI18n = {
       search: string;
       login: string;
       settings: string;
+      change_password: string;
     };
     login_form: {
       password: string;
@@ -24,6 +25,10 @@ export type UseI18n = {
       preview_char: string;
       extra_css: string;
       extra_js: string;
+      submit: string;
+    };
+    change_password_form: {
+      new_password: string;
       submit: string;
     };
   };

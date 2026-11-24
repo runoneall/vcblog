@@ -3,6 +3,7 @@ import Main from "@/Main";
 import NotFound from "@/NotFound";
 import Search from "@/Search";
 import View from "@/View";
+import change_password from "@/change-password";
 import feed from "@/feed";
 import login from "@/login";
 import auth from "@/middleware/auth";
@@ -51,10 +52,16 @@ app
   .post(login.Submit);
 
 app
+  .get("/change-password", needauth, (c) => {
+    return c.render(<change_password.Form />);
+  })
+  .post(needauth, change_password.Submit);
+
+app
   .get("/settings", needauth, (c) => {
     return c.render(<settings.Form />);
   })
-  .post(settings.Submit);
+  .post(needauth, settings.Submit);
 
 app.get("/:name{[a-zA-Z0-9_-]+}", (c) => {
   const name = c.req.param("name");

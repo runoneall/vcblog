@@ -115,9 +115,14 @@ export const renderer = jsxRenderer(async ({ children }) => {
               ))}
 
               {authed ? (
-                <li>
-                  <a href="/settings">{i18n.title.settings}</a>
-                </li>
+                <>
+                  <li>
+                    <a href="/change-password">{i18n.title.change_password}</a>
+                  </li>
+                  <li>
+                    <a href="/settings">{i18n.title.settings}</a>
+                  </li>
+                </>
               ) : (
                 <li>
                   <a href="/login">{i18n.title.login}</a>
