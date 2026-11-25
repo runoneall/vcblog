@@ -36,7 +36,7 @@ app.get("/sitemap.xml", sitemap);
 app.get("/rss.xml", feed("rss"));
 app.get("/atom.xml", feed("atom"));
 
-app.get("/:page{[1-9]+}?", (c) => {
+app.get("/:page{[1-9][0-9]*}?", (c) => {
   const page = Number(c.req.param("page")) || 1;
   return c.render(<Main page={page} />);
 });

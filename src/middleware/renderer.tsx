@@ -1,4 +1,5 @@
 import { eq } from "drizzle-orm";
+import { raw } from "hono/html";
 import { jsxRenderer, useRequestContext } from "hono/jsx-renderer";
 import { Link, ViteClient } from "vite-ssr-components/hono";
 import { Context } from "@/types";
@@ -38,6 +39,7 @@ export const renderer = jsxRenderer(async ({ children }) => {
         />
         <ViteClient />
         <Link href="/src/style.css" rel="stylesheet" />
+        <style>{raw(config.extra_css)}</style>
       </head>
       <body>
         <div class="navbar bg-base-100">
@@ -137,6 +139,7 @@ export const renderer = jsxRenderer(async ({ children }) => {
             </ul>
           </div>
         </div>
+        <script>{raw(config.extra_js)}</script>
       </body>
     </html>
   );

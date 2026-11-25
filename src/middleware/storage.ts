@@ -7,7 +7,7 @@ export default async (c: Context, next: Next) => {
   const { i18n, db } = c.var;
 
   try {
-    await db.select().from(StorageTable).get();
+    await db.select({ type: StorageTable.type }).from(StorageTable).limit(1);
   } catch {
     await db.run(sql.raw(CreateStorageTable));
     await db.insert(StorageTable).values({

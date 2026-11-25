@@ -67,13 +67,21 @@ export default {
     const body = await c.req.formData();
     const form = {
       site_name: body.get("site_name")?.toString() || config.site_name,
-      post_per_page:
+
+      post_per_page: Math.trunc(
         Number(body.get("post_per_page")?.toString()) || config.post_per_page,
-      preview_char:
+      ),
+
+      preview_char: Math.trunc(
         Number(body.get("preview_char")?.toString()) || config.preview_char,
+      ),
+
       extra_css: body.get("extra_css")?.toString() || "",
       extra_js: body.get("extra_js")?.toString() || "",
     };
+
+    if (form.post_per_page <= 0) form.post_per_page = config.post_per_page;
+    if (form.preview_char <= 0) form.preview_char = config.preview_char;
 
     await db.update(ConfigTable).set(form);
     return c.redirect("/settings");
