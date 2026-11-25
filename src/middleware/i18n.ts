@@ -24,6 +24,10 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
         post: "New Post",
         page: "New Page",
       },
+      delete: {
+        post: "Delete Post",
+        page: "Delete Page",
+      },
     },
     login_form: {
       password: "Password",
@@ -45,6 +49,9 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       name: "Name",
       title: "Title",
       submit: "Create",
+    },
+    delete_form: {
+      confirm: "I confirm to delete ${name}",
     },
   },
 
@@ -68,6 +75,10 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
         post: "新文章",
         page: "新页面",
       },
+      delete: {
+        post: "删除文章",
+        page: "删除页面",
+      },
     },
     login_form: {
       password: "密码",
@@ -89,6 +100,9 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       name: "名称",
       title: "标题",
       submit: "创建",
+    },
+    delete_form: {
+      confirm: "我确认删除 ${name}",
     },
   },
 };

@@ -10,13 +10,10 @@ import { StorageTable } from "@/types/db";
 
 export default (async ({ name }) => {
   const c: Context = useRequestContext();
-  const { host, db, config } = c.var;
+  const { i18n, host, db, config, authed } = c.var;
 
   const result = await db
-    .select({
-      title: StorageTable.title,
-      content: StorageTable.content,
-    })
+    .select()
     .from(StorageTable)
     .where(eq(StorageTable.name, name))
     .get();
@@ -45,6 +42,14 @@ export default (async ({ name }) => {
         <div class="card-body">
           <h2 class="card-title">{result.title}</h2>
           <div class="prose max-w-none">{raw(html)}</div>
+
+          {authed && (
+            <div class="card-actions justify-end">
+              <a class="btn btn-error" href={`/delete?name=${result.name}`}>
+                {i18n.title.delete[result.type]}
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </>

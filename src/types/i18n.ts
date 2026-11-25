@@ -18,6 +18,10 @@ export type UseI18n = {
         post: string;
         page: string;
       };
+      delete: {
+        post: string;
+        page: string;
+      };
     };
     login_form: {
       password: string;
@@ -39,6 +43,9 @@ export type UseI18n = {
       name: string;
       title: string;
       submit: string;
+    };
+    delete_form: {
+      confirm: string;
     };
   };
 };
