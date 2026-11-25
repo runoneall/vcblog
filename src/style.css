@@ -4,7 +4,7 @@
 
 @layer components {
   textarea {
-    @apply textarea field-sizing-content w-full font-mono;
+    @apply textarea field-sizing-content w-full overflow-auto font-mono whitespace-pre;
   }
 
   button[type="submit"] {
