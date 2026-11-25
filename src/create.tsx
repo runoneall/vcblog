@@ -32,9 +32,7 @@ export default {
               <label class="label">{i18n.create_form.title}</label>
               <input class="input" type="text" name="title" required />
 
-              <button type="submit" class="btn btn-neutral mt-4">
-                {i18n.create_form.submit}
-              </button>
+              <button type="submit">{i18n.create_form.submit}</button>
             </fieldset>
           </form>
         </div>

@@ -47,9 +47,7 @@ export default {
                 />
               </label>
 
-              <button type="submit" class="btn btn-neutral mt-4">
-                {i18n.login_form.submit}
-              </button>
+              <button type="submit">{i18n.login_form.submit}</button>
             </fieldset>
           </form>
         </div>

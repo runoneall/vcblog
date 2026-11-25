@@ -48,7 +48,7 @@ export default {
             <label class="label">{i18n.settings_form.extra_js}</label>
             <textarea name="extra_js">{config.extra_js}</textarea>
 
-            <button type="submit" class="btn btn-neutral btn-wide mt-4">
+            <button type="submit" class="btn-wide">
               {i18n.settings_form.submit}
             </button>
           </fieldset>

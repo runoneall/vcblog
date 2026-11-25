@@ -61,7 +61,7 @@ export default {
             <label class="label">{i18n.edit_form.content}</label>
             <textarea name="content">{result.content}</textarea>
 
-            <button type="submit" class="btn btn-neutral btn-wide mt-4">
+            <button type="submit" class="btn-wide">
               {i18n.edit_form.submit}
             </button>
           </fieldset>

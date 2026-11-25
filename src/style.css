@@ -2,6 +2,12 @@
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
 
-textarea {
-  @apply textarea field-sizing-content w-full font-mono;
+@layer components {
+  textarea {
+    @apply textarea field-sizing-content w-full font-mono;
+  }
+
+  button[type="submit"] {
+    @apply btn btn-neutral mt-4;
+  }
 }

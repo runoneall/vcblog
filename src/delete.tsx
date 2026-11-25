@@ -35,7 +35,7 @@ export default {
 
               <input class="hidden" type="text" name="name" value={name} />
 
-              <button type="submit" class="btn btn-error mt-4">
+              <button type="submit" class="btn-error">
                 {i18n.delete_form.confirm.replaceAll("${name}", name)}
               </button>
             </fieldset>

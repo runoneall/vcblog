@@ -47,9 +47,7 @@ export default {
                 <input type="password" name="new-password" required />
               </label>
 
-              <button type="submit" class="btn btn-neutral mt-4">
-                {i18n.change_password_form.submit}
-              </button>
+              <button type="submit">{i18n.change_password_form.submit}</button>
             </fieldset>
           </form>
         </div>
