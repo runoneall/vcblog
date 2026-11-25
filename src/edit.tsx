@@ -38,7 +38,7 @@ export default {
             />
 
             <label>{i18n.edit_form.name}</label>
-            <input type="text" class="input" name="name" value={result.name} />
+            <input type="text" name="name" value={result.name} />
 
             <label>{i18n.edit_form.type}</label>
             <select class="select" name="type">
@@ -51,12 +51,7 @@ export default {
             </select>
 
             <label>{i18n.edit_form.title}</label>
-            <input
-              type="text"
-              class="input"
-              name="title"
-              value={result.title}
-            />
+            <input type="text" name="title" value={result.title} />
 
             <label>{i18n.edit_form.content}</label>
             <textarea name="content">{result.content}</textarea>

@@ -19,17 +19,11 @@ export default {
             <legend>{i18n.title.settings}</legend>
 
             <label>{i18n.settings_form.site_name}</label>
-            <input
-              type="text"
-              class="input"
-              name="site_name"
-              value={config.site_name}
-            />
+            <input type="text" name="site_name" value={config.site_name} />
 
             <label>{i18n.settings_form.post_per_page}</label>
             <input
               type="number"
-              class="input"
               name="post_per_page"
               value={config.post_per_page}
             />
@@ -37,7 +31,6 @@ export default {
             <label>{i18n.settings_form.preview_char}</label>
             <input
               type="number"
-              class="input"
               name="preview_char"
               value={config.preview_char}
             />

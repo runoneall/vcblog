@@ -22,4 +22,8 @@
   label:not([class]) {
     @apply label;
   }
+
+  fieldset > input {
+    @apply input;
+  }
 }
