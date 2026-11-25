@@ -1,9 +1,11 @@
 import { renderHtml } from "@comark/html";
+import rangi, { RangiToken } from "@comark/html/plugins/rangi";
 import { external } from "comark-links";
 import { eq } from "drizzle-orm";
 import { raw } from "hono/html";
 import { FC } from "hono/jsx";
 import { useRequestContext } from "hono/jsx-renderer";
+import { githubDark, githubLight } from "rangi/themes";
 import NotFound from "@/NotFound";
 import { Context } from "@/types";
 import { StorageTable } from "@/types/db";
@@ -20,8 +22,28 @@ export default (async ({ name }) => {
 
   if (!result) return <NotFound />;
 
+  const adaptive_color = (light: string, dark: string) =>
+    `light-dark(${light}, ${dark})`;
+
+  const github = {
+    ...githubLight,
+    name: "github",
+    bg: adaptive_color(githubLight.bg, githubDark.bg),
+    fg: adaptive_color(githubLight.fg, githubDark.fg),
+    tokens: Object.fromEntries(
+      Object.entries(githubLight.tokens).map(([token, color]) => [
+        token,
+        adaptive_color(
+          color,
+          githubDark.tokens[token as RangiToken] ?? githubDark.fg,
+        ),
+      ]),
+    ),
+  };
+
   const html = await renderHtml(result.content, {
     plugins: [
+      rangi({ theme: github, preStyles: true }),
       external({
         target: "_blank",
         rel: ["nofollow", "noreferrer"],
