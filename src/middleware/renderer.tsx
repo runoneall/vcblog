@@ -122,6 +122,12 @@ export const renderer = jsxRenderer(async ({ children }) => {
                   <li>
                     <a href="/settings">{i18n.title.settings}</a>
                   </li>
+                  <li>
+                    <a href="/create?type=post">{i18n.title.create.post}</a>
+                  </li>
+                  <li>
+                    <a href="/create?type=page">{i18n.title.create.page}</a>
+                  </li>
                 </>
               ) : (
                 <li>

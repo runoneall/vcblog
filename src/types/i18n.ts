@@ -14,6 +14,10 @@ export type UseI18n = {
       login: string;
       settings: string;
       change_password: string;
+      create: {
+        post: string;
+        page: string;
+      };
     };
     login_form: {
       password: string;
@@ -29,6 +33,11 @@ export type UseI18n = {
     };
     change_password_form: {
       new_password: string;
+      submit: string;
+    };
+    create_form: {
+      name: string;
+      title: string;
       submit: string;
     };
   };

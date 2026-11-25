@@ -4,6 +4,7 @@ import NotFound from "@/NotFound";
 import Search from "@/Search";
 import View from "@/View";
 import change_password from "@/change-password";
+import create from "@/create";
 import feed from "@/feed";
 import login from "@/login";
 import auth from "@/middleware/auth";
@@ -62,6 +63,13 @@ app
     return c.render(<settings.Form />);
   })
   .post(needauth, settings.Submit);
+
+app
+  .get("/create", needauth, (c) => {
+    const type = c.req.query("type");
+    return type ? c.render(<create.Form />) : c.redirect("/");
+  })
+  .post(needauth, create.Submit);
 
 app.get("/:name{[a-zA-Z0-9_-]+}", (c) => {
   const name = c.req.param("name");

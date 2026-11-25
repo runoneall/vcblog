@@ -20,6 +20,10 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       login: "Login",
       settings: "Settings",
       change_password: "Change Password",
+      create: {
+        post: "New Post",
+        page: "New Page",
+      },
     },
     login_form: {
       password: "Password",
@@ -36,6 +40,11 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
     change_password_form: {
       new_password: "New password",
       submit: "Change",
+    },
+    create_form: {
+      name: "Name",
+      title: "Title",
+      submit: "Create",
     },
   },
 
@@ -55,6 +64,10 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       login: "登录",
       settings: "设置",
       change_password: "更改密码",
+      create: {
+        post: "新文章",
+        page: "新页面",
+      },
     },
     login_form: {
       password: "密码",
@@ -71,6 +84,11 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
     change_password_form: {
       new_password: "新密码",
       submit: "更改",
+    },
+    create_form: {
+      name: "名称",
+      title: "标题",
+      submit: "创建",
     },
   },
 };
