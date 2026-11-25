@@ -60,7 +60,7 @@ export default {
 
             <label class="label">{i18n.edit_form.content}</label>
             <textarea
-              class="textarea h-[40dvh] w-full font-mono"
+              class="textarea field-sizing-content w-full font-mono"
               name="content"
             >
               {result.content}

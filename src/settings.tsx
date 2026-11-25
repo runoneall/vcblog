@@ -43,12 +43,18 @@ export default {
             />
 
             <label class="label">{i18n.settings_form.extra_css}</label>
-            <textarea class="textarea w-full font-mono" name="extra_css">
+            <textarea
+              class="textarea field-sizing-content w-full font-mono"
+              name="extra_css"
+            >
               {config.extra_css}
             </textarea>
 
             <label class="label">{i18n.settings_form.extra_js}</label>
-            <textarea class="textarea w-full font-mono" name="extra_js">
+            <textarea
+              class="textarea field-sizing-content w-full font-mono"
+              name="extra_js"
+            >
               {config.extra_js}
             </textarea>
 
