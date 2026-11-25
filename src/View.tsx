@@ -45,7 +45,10 @@ export default (async ({ name }) => {
 
           {authed && (
             <div class="card-actions justify-end">
-              <a class="btn btn-error" href={`/delete?name=${result.name}`}>
+              <a
+                class="btn btn-link btn-error"
+                href={`/delete?name=${result.name}`}
+              >
                 {i18n.title.delete[result.type]}
               </a>
             </div>
