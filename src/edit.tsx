@@ -59,12 +59,7 @@ export default {
             />
 
             <label class="label">{i18n.edit_form.content}</label>
-            <textarea
-              class="textarea field-sizing-content w-full font-mono"
-              name="content"
-            >
-              {result.content}
-            </textarea>
+            <textarea name="content">{result.content}</textarea>
 
             <button type="submit" class="btn btn-neutral btn-wide mt-4">
               {i18n.edit_form.submit}

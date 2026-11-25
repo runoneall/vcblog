@@ -43,20 +43,10 @@ export default {
             />
 
             <label class="label">{i18n.settings_form.extra_css}</label>
-            <textarea
-              class="textarea field-sizing-content w-full font-mono"
-              name="extra_css"
-            >
-              {config.extra_css}
-            </textarea>
+            <textarea name="extra_css">{config.extra_css}</textarea>
 
             <label class="label">{i18n.settings_form.extra_js}</label>
-            <textarea
-              class="textarea field-sizing-content w-full font-mono"
-              name="extra_js"
-            >
-              {config.extra_js}
-            </textarea>
+            <textarea name="extra_js">{config.extra_js}</textarea>
 
             <button type="submit" class="btn btn-neutral btn-wide mt-4">
               {i18n.settings_form.submit}

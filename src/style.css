@@ -1,3 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
+
+textarea {
+  @apply textarea field-sizing-content w-full font-mono;
+}
