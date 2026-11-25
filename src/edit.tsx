@@ -27,8 +27,8 @@ export default {
         </title>
 
         <form action="/edit" method="post">
-          <fieldset class="fieldset bg-base-200 border-base-300 rounded-box mx-2 border p-4">
-            <legend class="fieldset-legend">{i18n_title}</legend>
+          <fieldset class="mx-2 w-auto">
+            <legend>{i18n_title}</legend>
 
             <input
               class="hidden"

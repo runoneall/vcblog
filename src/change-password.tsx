@@ -17,10 +17,8 @@ export default {
 
         <div class="flex justify-center">
           <form action="/change-password" method="post">
-            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-              <legend class="fieldset-legend">
-                {i18n.title.change_password}
-              </legend>
+            <fieldset>
+              <legend>{i18n.title.change_password}</legend>
 
               <label class="label">
                 {i18n.change_password_form.new_password}

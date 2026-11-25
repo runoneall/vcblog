@@ -10,4 +10,12 @@
   button[type="submit"] {
     @apply btn btn-neutral mt-4;
   }
+
+  fieldset {
+    @apply fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4;
+  }
+
+  fieldset > legend {
+    @apply fieldset-legend;
+  }
 }

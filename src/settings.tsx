@@ -15,8 +15,8 @@ export default {
         </title>
 
         <form action="/settings" method="post">
-          <fieldset class="fieldset bg-base-200 border-base-300 rounded-box mx-2 border p-4">
-            <legend class="fieldset-legend">{i18n.title.settings}</legend>
+          <fieldset class="mx-2 w-auto">
+            <legend>{i18n.title.settings}</legend>
 
             <label class="label">{i18n.settings_form.site_name}</label>
             <input

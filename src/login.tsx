@@ -18,8 +18,8 @@ export default {
 
         <div class="flex justify-center">
           <form action="/login" method="post">
-            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-              <legend class="fieldset-legend">{i18n.title.login}</legend>
+            <fieldset>
+              <legend>{i18n.title.login}</legend>
 
               <label class="input">
                 <svg
