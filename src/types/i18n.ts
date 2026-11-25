@@ -18,6 +18,10 @@ export type UseI18n = {
         post: string;
         page: string;
       };
+      edit: {
+        post: string;
+        page: string;
+      };
       delete: {
         post: string;
         page: string;
@@ -42,6 +46,17 @@ export type UseI18n = {
     create_form: {
       name: string;
       title: string;
+      submit: string;
+    };
+    edit_form: {
+      name: string;
+      type: string;
+      types: {
+        post: string;
+        page: string;
+      };
+      title: string;
+      content: string;
       submit: string;
     };
     delete_form: {

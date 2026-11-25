@@ -24,6 +24,10 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
         post: "New Post",
         page: "New Page",
       },
+      edit: {
+        post: "Edit Post",
+        page: "Edit Page",
+      },
       delete: {
         post: "Delete Post",
         page: "Delete Page",
@@ -50,6 +54,17 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       title: "Title",
       submit: "Create",
     },
+    edit_form: {
+      name: "Name",
+      type: "Type",
+      types: {
+        post: "Post",
+        page: "Page",
+      },
+      title: "Title",
+      content: "Content",
+      submit: "Save",
+    },
     delete_form: {
       confirm: "I confirm to delete ${name}",
     },
@@ -74,6 +89,10 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       create: {
         post: "新文章",
         page: "新页面",
+      },
+      edit: {
+        post: "编辑文章",
+        page: "编辑页面",
       },
       delete: {
         post: "删除文章",
@@ -100,6 +119,17 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
       name: "名称",
       title: "标题",
       submit: "创建",
+    },
+    edit_form: {
+      name: "名称",
+      type: "类型",
+      types: {
+        post: "文章",
+        page: "页面",
+      },
+      title: "标题",
+      content: "正文",
+      submit: "保存",
     },
     delete_form: {
       confirm: "我确认删除 ${name}",
