@@ -30,7 +30,7 @@ export default (async ({ keyword }) => {
     .orderBy(sql`rowid DESC`)
     .limit(config.post_per_page);
 
-  if (results.length == 0) return <NotFound />;
+  if (results.length === 0) return <NotFound />;
 
   return (
     <>

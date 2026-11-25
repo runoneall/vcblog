@@ -42,10 +42,10 @@ export default {
 
             <label class="label">{i18n.edit_form.type}</label>
             <select class="select" name="type">
-              <option value="post" selected={result.type == "post"}>
+              <option value="post" selected={result.type === "post"}>
                 {i18n.edit_form.types.post}
               </option>
-              <option value="page" selected={result.type == "page"}>
+              <option value="page" selected={result.type === "page"}>
                 {i18n.edit_form.types.page}
               </option>
             </select>
@@ -98,7 +98,7 @@ export default {
       content: body.get("content")?.toString() || result.content,
     };
 
-    if (form.type != "page") form.type = "post";
+    if (form.type !== "page") form.type = "post";
 
     if (
       await db

@@ -10,7 +10,7 @@ export default {
     const { i18n, config } = c.var;
 
     let { type } = c.req.query();
-    type = type == "page" ? "page" : "post";
+    type = type === "page" ? "page" : "post";
     const i18n_title = i18n.title.create[type as "post" | "page"];
 
     return (
@@ -54,7 +54,7 @@ export default {
       !name ||
       !type ||
       !title ||
-      (type.toString() != "post" && type.toString() != "page") ||
+      (type.toString() !== "post" && type.toString() !== "page") ||
       (await db
         .select({
           type: StorageTable.type,

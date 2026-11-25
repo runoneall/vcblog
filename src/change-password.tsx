@@ -63,7 +63,7 @@ export default {
     const body = await c.req.formData();
     const new_password = body.get("new-password");
 
-    if (!new_password || new_password.toString() == "")
+    if (!new_password || new_password.toString() === "")
       return c.redirect("/change-password");
 
     await db

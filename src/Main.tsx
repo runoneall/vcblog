@@ -29,11 +29,11 @@ export default (async ({ page }) => {
     .offset((page - 1) * config.post_per_page)
     .limit(config.post_per_page);
 
-  if (posts.length == 0) return <NotFound />;
+  if (posts.length === 0) return <NotFound />;
 
   return (
     <>
-      {page == 1 ? (
+      {page === 1 ? (
         <title>{config.site_name}</title>
       ) : (
         <title>
