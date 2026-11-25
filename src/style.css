@@ -18,4 +18,8 @@
   fieldset > legend {
     @apply fieldset-legend;
   }
+
+  label:not([class]) {
+    @apply label;
+  }
 }

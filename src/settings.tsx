@@ -18,7 +18,7 @@ export default {
           <fieldset class="mx-2 w-auto">
             <legend>{i18n.title.settings}</legend>
 
-            <label class="label">{i18n.settings_form.site_name}</label>
+            <label>{i18n.settings_form.site_name}</label>
             <input
               type="text"
               class="input"
@@ -26,7 +26,7 @@ export default {
               value={config.site_name}
             />
 
-            <label class="label">{i18n.settings_form.post_per_page}</label>
+            <label>{i18n.settings_form.post_per_page}</label>
             <input
               type="number"
               class="input"
@@ -34,7 +34,7 @@ export default {
               value={config.post_per_page}
             />
 
-            <label class="label">{i18n.settings_form.preview_char}</label>
+            <label>{i18n.settings_form.preview_char}</label>
             <input
               type="number"
               class="input"
@@ -42,10 +42,10 @@ export default {
               value={config.preview_char}
             />
 
-            <label class="label">{i18n.settings_form.extra_css}</label>
+            <label>{i18n.settings_form.extra_css}</label>
             <textarea name="extra_css">{config.extra_css}</textarea>
 
-            <label class="label">{i18n.settings_form.extra_js}</label>
+            <label>{i18n.settings_form.extra_js}</label>
             <textarea name="extra_js">{config.extra_js}</textarea>
 
             <button type="submit" class="btn-wide">

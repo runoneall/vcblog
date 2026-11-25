@@ -26,10 +26,10 @@ export default {
 
               <input class="hidden" type="text" name="type" value={type} />
 
-              <label class="label">{i18n.create_form.name}</label>
+              <label>{i18n.create_form.name}</label>
               <input class="input" type="text" name="name" required />
 
-              <label class="label">{i18n.create_form.title}</label>
+              <label>{i18n.create_form.title}</label>
               <input class="input" type="text" name="title" required />
 
               <button type="submit">{i18n.create_form.submit}</button>

@@ -20,9 +20,7 @@ export default {
             <fieldset>
               <legend>{i18n.title.change_password}</legend>
 
-              <label class="label">
-                {i18n.change_password_form.new_password}
-              </label>
+              <label>{i18n.change_password_form.new_password}</label>
 
               <label class="input">
                 <svg

@@ -37,10 +37,10 @@ export default {
               value={old_name}
             />
 
-            <label class="label">{i18n.edit_form.name}</label>
+            <label>{i18n.edit_form.name}</label>
             <input type="text" class="input" name="name" value={result.name} />
 
-            <label class="label">{i18n.edit_form.type}</label>
+            <label>{i18n.edit_form.type}</label>
             <select class="select" name="type">
               <option value="post" selected={result.type === "post"}>
                 {i18n.edit_form.types.post}
@@ -50,7 +50,7 @@ export default {
               </option>
             </select>
 
-            <label class="label">{i18n.edit_form.title}</label>
+            <label>{i18n.edit_form.title}</label>
             <input
               type="text"
               class="input"
@@ -58,7 +58,7 @@ export default {
               value={result.title}
             />
 
-            <label class="label">{i18n.edit_form.content}</label>
+            <label>{i18n.edit_form.content}</label>
             <textarea name="content">{result.content}</textarea>
 
             <button type="submit" class="btn-wide">
