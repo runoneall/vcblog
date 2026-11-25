@@ -12,7 +12,7 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
         "If you are seeing this post, it means your blog has been successfully installed. Welcome to VCBlog!",
     },
     feed_description: "'s latest articles",
-    search_input_placeholder: "Enter keywords to search",
+    search_input_placeholder: "Search keyword",
     title: {
       main: "Page ${page}",
       not_found: "Not Found",
@@ -78,7 +78,7 @@ const i18n_data: Record<string, UseI18n["i18n"]> = {
         "如果您看到这篇文章，表示您的 blog 已经安装成功。欢迎使用 VCBlog！",
     },
     feed_description: "的最新文章",
-    search_input_placeholder: "输入关键词搜索",
+    search_input_placeholder: "搜索关键词",
     title: {
       main: "第 ${page} 页",
       not_found: "未找到",
