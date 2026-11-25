@@ -28,7 +28,7 @@ export default {
           {i18n_title} | {config.site_name}
         </title>
 
-        <div class="flex justify-center">
+        <div class="flex-center">
           <form action="/delete" method="post">
             <fieldset>
               <legend>{i18n_title}</legend>

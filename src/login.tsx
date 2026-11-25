@@ -16,7 +16,7 @@ export default {
           {i18n.title.login} | {config.site_name}
         </title>
 
-        <div class="flex justify-center">
+        <div class="flex-center">
           <form action="/login" method="post">
             <fieldset>
               <legend>{i18n.title.login}</legend>

@@ -15,7 +15,7 @@ export default {
           {i18n.title.change_password} | {config.site_name}
         </title>
 
-        <div class="flex justify-center">
+        <div class="flex-center">
           <form action="/change-password" method="post">
             <fieldset>
               <legend>{i18n.title.change_password}</legend>

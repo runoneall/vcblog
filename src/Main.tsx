@@ -56,7 +56,7 @@ export default (async ({ page }) => {
         ))}
       </ul>
 
-      <div class="join my-6 flex justify-center font-mono">
+      <div class="join flex-center my-6 font-mono">
         {(() => {
           const max = 9;
 
