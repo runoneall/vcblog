@@ -18,7 +18,7 @@ export default (format: "rss" | "atom") => {
         name: StorageTable.name,
         title: StorageTable.title,
         preview:
-          sql`substr(${StorageTable.content}, 1, ${config.preview_char})`.mapWith(
+          sql`substr(${StorageTable.content}, 1, ${config.preview_char + 1})`.mapWith(
             String,
           ),
       })
@@ -33,7 +33,9 @@ export default (format: "rss" | "atom") => {
         author: { name: config.site_name },
         link: `${protocol}://${host}/${article.name}`,
         published: new Date(),
-        content: article.preview,
+        content:
+          article.preview +
+          (article.preview.length > config.preview_char ? "..." : ""),
       });
     });
 
