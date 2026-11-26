@@ -12,7 +12,7 @@
   }
 
   fieldset {
-    @apply fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4;
+    @apply fieldset bg-base-200 border-base-300 rounded-box mb-2 w-xs border p-4;
   }
 
   fieldset > legend {
