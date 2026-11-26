@@ -1,8 +1,19 @@
 import { Next } from "hono";
-import { getCookie } from "hono/cookie";
+import { getCookie, setCookie } from "hono/cookie";
 import { Context } from "@/types";
-import { aes256gcmkey, decrypt } from "@/util/aes256gcm";
+import { aes256gcmkey, decrypt, encrypt } from "@/util/aes256gcm";
 import { hash_eq_hash } from "@/util/password";
+
+export const set_auth = (c: Context) => {
+  const { config } = c.var;
+  const key = aes256gcmkey(config.password_hash);
+
+  setCookie(c, "auth", encrypt(config.password_hash, key), {
+    httpOnly: true,
+    sameSite: "strict",
+    maxAge: 24 * 60 * 60,
+  });
+};
 
 export default async (c: Context, next: Next) => {
   const { config } = c.var;
@@ -23,5 +34,7 @@ export default async (c: Context, next: Next) => {
   })();
 
   c.set("authed", authed);
+  if (authed) set_auth(c);
+
   return await next();
 };

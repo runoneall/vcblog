@@ -1,8 +1,7 @@
-import { setCookie } from "hono/cookie";
 import { FC } from "hono/jsx";
 import { useRequestContext } from "hono/jsx-renderer";
+import { set_auth } from "@/middleware/auth";
 import { Context } from "@/types";
-import { aes256gcmkey, encrypt } from "@/util/aes256gcm";
 import { password_eq_hash } from "@/util/password";
 
 export default {
@@ -57,7 +56,6 @@ export default {
 
   Submit: async (c: Context) => {
     const { config } = c.var;
-    const key = aes256gcmkey(config.password_hash);
 
     const body = await c.req.formData();
     const password = body.get("password");
@@ -68,13 +66,7 @@ export default {
     )
       return c.redirect("/login");
 
-    const auth_cookie_encrypted = encrypt(config.password_hash, key);
-    setCookie(c, "auth", auth_cookie_encrypted, {
-      httpOnly: true,
-      sameSite: "strict",
-      maxAge: 24 * 60 * 60,
-    });
-
+    set_auth(c);
     return c.redirect("/");
   },
 };
