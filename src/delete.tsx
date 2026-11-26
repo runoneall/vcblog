@@ -4,6 +4,7 @@ import { useRequestContext } from "hono/jsx-renderer";
 import NotFound from "@/NotFound";
 import { Context } from "@/types";
 import { StorageTable } from "@/types/db";
+import form from "@/util/form";
 
 export default {
   Form: (async () => {
@@ -48,14 +49,10 @@ export default {
   Submit: async (c: Context) => {
     const { db } = c.var;
 
-    const body = await c.req.formData();
-    const name = body.get("name");
+    const body = form(await c.req.formData());
+    const name = body.text("name");
 
-    if (name)
-      await db
-        .delete(StorageTable)
-        .where(eq(StorageTable.name, name.toString()));
-
+    if (name) await db.delete(StorageTable).where(eq(StorageTable.name, name));
     return c.redirect("/");
   },
 };

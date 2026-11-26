@@ -2,6 +2,7 @@ import { FC } from "hono/jsx";
 import { useRequestContext } from "hono/jsx-renderer";
 import { Context } from "@/types";
 import { ConfigTable } from "@/types/db";
+import form from "@/util/form";
 import { password_to_hash } from "@/util/password";
 
 export default {
@@ -54,15 +55,14 @@ export default {
   Submit: async (c: Context) => {
     const { db } = c.var;
 
-    const body = await c.req.formData();
-    const new_password = body.get("new-password");
+    const body = form(await c.req.formData());
+    const new_password = body.text("new-password");
 
-    if (!new_password || new_password.toString() === "")
-      return c.redirect("/change-password");
+    if (!new_password) return c.redirect("/change-password");
 
     await db
       .update(ConfigTable)
-      .set({ password_hash: password_to_hash(new_password.toString()) });
+      .set({ password_hash: password_to_hash(new_password) });
 
     return c.redirect("/login");
   },

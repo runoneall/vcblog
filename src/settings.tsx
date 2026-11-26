@@ -2,6 +2,7 @@ import { FC } from "hono/jsx";
 import { useRequestContext } from "hono/jsx-renderer";
 import { Context } from "@/types";
 import { ConfigTable } from "@/types/db";
+import form from "@/util/form";
 
 export default {
   Form: (() => {
@@ -53,26 +54,26 @@ export default {
   Submit: async (c: Context) => {
     const { db, config } = c.var;
 
-    const body = await c.req.formData();
-    const form = {
-      site_name: body.get("site_name")?.toString() || config.site_name,
+    const body = form(await c.req.formData());
+    const site_name = body.text("site_name") || config.site_name;
+    const extra_css = body.text("extra_css") || "";
+    const extra_js = body.text("extra_js") || "";
 
-      post_per_page: Math.trunc(
-        Number(body.get("post_per_page")?.toString()) || config.post_per_page,
-      ),
+    let post_per_page = Math.trunc(
+      body.number("post_per_page") || config.post_per_page,
+    );
 
-      preview_char: Math.trunc(
-        Number(body.get("preview_char")?.toString()) || config.preview_char,
-      ),
+    let preview_char = Math.trunc(
+      body.number("preview_char") || config.preview_char,
+    );
 
-      extra_css: body.get("extra_css")?.toString() || "",
-      extra_js: body.get("extra_js")?.toString() || "",
-    };
+    if (post_per_page <= 0) post_per_page = config.post_per_page;
+    if (preview_char <= 0) preview_char = config.preview_char;
 
-    if (form.post_per_page <= 0) form.post_per_page = config.post_per_page;
-    if (form.preview_char <= 0) form.preview_char = config.preview_char;
+    await db
+      .update(ConfigTable)
+      .set({ site_name, post_per_page, preview_char, extra_css, extra_js });
 
-    await db.update(ConfigTable).set(form);
     return c.redirect("/settings");
   },
 };

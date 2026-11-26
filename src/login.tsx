@@ -2,6 +2,7 @@ import { FC } from "hono/jsx";
 import { useRequestContext } from "hono/jsx-renderer";
 import { set_auth } from "@/middleware/auth";
 import { Context } from "@/types";
+import form from "@/util/form";
 import { password_eq_hash } from "@/util/password";
 
 export default {
@@ -57,13 +58,10 @@ export default {
   Submit: async (c: Context) => {
     const { config } = c.var;
 
-    const body = await c.req.formData();
-    const password = body.get("password");
+    const body = form(await c.req.formData());
+    const password = body.text("password");
 
-    if (
-      !password ||
-      !password_eq_hash(password.toString(), config.password_hash)
-    )
+    if (!password || !password_eq_hash(password, config.password_hash))
       return c.redirect("/login");
 
     set_auth(c);

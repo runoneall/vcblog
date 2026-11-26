@@ -3,6 +3,7 @@ import { FC } from "hono/jsx";
 import { useRequestContext } from "hono/jsx-renderer";
 import { Context } from "@/types";
 import { StorageTable } from "@/types/db";
+import form from "@/util/form";
 
 export default {
   Form: (() => {
@@ -43,38 +44,27 @@ export default {
   Submit: async (c: Context) => {
     const { db } = c.var;
 
-    const body = await c.req.formData();
-    const name = body.get("name");
-    const type = body.get("type");
-    const title = body.get("title");
+    const body = form(await c.req.formData());
+    const name = body.text("name");
+    const type = body.text("type");
+    const title = body.text("title");
 
     if (
       !name ||
       !type ||
       !title ||
-      (type.toString() !== "post" && type.toString() !== "page") ||
+      (type !== "post" && type !== "page") ||
       (await db
         .select({
           type: StorageTable.type,
         })
         .from(StorageTable)
-        .where(
-          or(
-            eq(StorageTable.name, name.toString()),
-            eq(StorageTable.title, title.toString()),
-          ),
-        )
+        .where(or(eq(StorageTable.name, name), eq(StorageTable.title, title)))
         .get())
     )
       return c.redirect(`/create?type=default`);
 
-    await db.insert(StorageTable).values({
-      name: name.toString(),
-      type: type.toString() as "post" | "page",
-      title: title.toString(),
-      content: "",
-    });
-
+    await db.insert(StorageTable).values({ name, type, title, content: "" });
     return c.redirect(`/${name}`);
   },
 };

@@ -4,6 +4,7 @@ import { useRequestContext } from "hono/jsx-renderer";
 import NotFound from "@/NotFound";
 import { Context } from "@/types";
 import { StorageTable } from "@/types/db";
+import form from "@/util/form";
 
 export default {
   Form: (async () => {
@@ -68,27 +69,24 @@ export default {
   Submit: async (c: Context) => {
     const { db } = c.var;
 
-    const body = await c.req.formData();
-    const old_name = body.get("old_name");
+    const body = form(await c.req.formData());
+    const old_name = body.text("old_name");
 
     if (!old_name) return c.redirect("/");
 
     const result = await db
       .select()
       .from(StorageTable)
-      .where(eq(StorageTable.name, old_name.toString()))
+      .where(eq(StorageTable.name, old_name))
       .get();
 
-    if (!result) return c.redirect(`/edit?name=${old_name.toString()}`);
+    if (!result) return c.redirect(`/edit?name=${old_name}`);
 
-    const form = {
-      name: body.get("name")?.toString() || result.name,
-      type: (body.get("type")?.toString() || result.type) as typeof result.type,
-      title: body.get("title")?.toString() || result.title,
-      content: body.get("content")?.toString() || result.content,
-    };
-
-    if (form.type !== "page") form.type = "post";
+    const name = body.text("name") || result.name;
+    const type =
+      (body.text("type") || result.type) === "page" ? "page" : "post";
+    const title = body.text("title") || result.title;
+    const content = body.text("content") || result.content;
 
     if (
       await db
@@ -98,22 +96,19 @@ export default {
         .from(StorageTable)
         .where(
           and(
-            or(
-              eq(StorageTable.name, form.name),
-              eq(StorageTable.title, form.title),
-            ),
-            ne(StorageTable.name, old_name.toString()),
+            or(eq(StorageTable.name, name), eq(StorageTable.title, title)),
+            ne(StorageTable.name, old_name),
           ),
         )
         .get()
     )
-      return c.redirect(`/edit?name=${old_name.toString()}`);
+      return c.redirect(`/edit?name=${old_name}`);
 
     await db
       .update(StorageTable)
-      .set(form)
-      .where(eq(StorageTable.name, old_name.toString()));
+      .set({ name, type, title, content })
+      .where(eq(StorageTable.name, old_name));
 
-    return c.redirect(`/edit?name=${form.name}`);
+    return c.redirect(`/edit?name=${name}`);
   },
 };
