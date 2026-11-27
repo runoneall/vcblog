@@ -56,65 +56,67 @@ export default (async ({ page }) => {
         ))}
       </ul>
 
-      <div class="join flex-center my-6 font-mono">
-        {(() => {
-          const max = 9;
+      {total_page > 1 && (
+        <div class="join flex-center my-6 font-mono">
+          {(() => {
+            const max = 9;
 
-          if (total_page <= max) {
-            return Array.from({ length: total_page }, (_, i) => i + 1).map(
-              (p) => (
-                <a
-                  class="join-item btn btn-square"
-                  href={"/" + p}
-                  aria-disabled={p === page ? "true" : "false"}
+            if (total_page <= max) {
+              return Array.from({ length: total_page }, (_, i) => i + 1).map(
+                (p) => (
+                  <a
+                    class="join-item btn btn-square"
+                    href={"/" + p}
+                    aria-disabled={p === page ? "true" : "false"}
+                  >
+                    {p}
+                  </a>
+                ),
+              );
+            }
+
+            const inner_max = max - 4;
+            let start = page - Math.floor(inner_max / 2);
+            let end = start + inner_max - 1;
+
+            if (start < 2) {
+              start = 2;
+              end = start + inner_max - 1;
+            }
+
+            if (end > total_page - 1) {
+              end = total_page - 1;
+              start = end - inner_max + 1;
+            }
+
+            const links: Array<number | "..."> = [];
+            links.push(1);
+            if (start > 2) links.push("...");
+            for (let i = start; i <= end; i++) links.push(i);
+            if (end < total_page - 1) links.push("...");
+            links.push(total_page);
+
+            return links.map((link) =>
+              link === "..." ? (
+                <button class="join-item btn btn-square btn-disabled" disabled>
+                  …
+                </button>
+              ) : link === page ? (
+                <span
+                  class="join-item btn btn-square btn-active"
+                  aria-current="page"
                 >
-                  {p}
+                  {link}
+                </span>
+              ) : (
+                <a class="join-item btn btn-square" href={"/" + link}>
+                  {link}
                 </a>
               ),
             );
-          }
-
-          const inner_max = max - 4;
-          let start = page - Math.floor(inner_max / 2);
-          let end = start + inner_max - 1;
-
-          if (start < 2) {
-            start = 2;
-            end = start + inner_max - 1;
-          }
-
-          if (end > total_page - 1) {
-            end = total_page - 1;
-            start = end - inner_max + 1;
-          }
-
-          const links: Array<number | "..."> = [];
-          links.push(1);
-          if (start > 2) links.push("...");
-          for (let i = start; i <= end; i++) links.push(i);
-          if (end < total_page - 1) links.push("...");
-          links.push(total_page);
-
-          return links.map((link) =>
-            link === "..." ? (
-              <button class="join-item btn btn-square btn-disabled" disabled>
-                …
-              </button>
-            ) : link === page ? (
-              <span
-                class="join-item btn btn-square btn-active"
-                aria-current="page"
-              >
-                {link}
-              </span>
-            ) : (
-              <a class="join-item btn btn-square" href={"/" + link}>
-                {link}
-              </a>
-            ),
-          );
-        })()}
-      </div>
+          })()}
+        </div>
+      )}
     </>
   );
 }) as FC<{ page: number }>;
